@@ -1,17 +1,17 @@
 # Archivage
 
-Application de gestion documentaire et d’archivage numérique, composée d’un frontend moderne et d’une API Laravel pour la gestion des documents, la recherche, l’OCR, l’analyse IA et la traçabilité des actions.
+Plateforme de gestion documentaire et d’archivage numérique pensée pour centraliser les documents, automatiser les traitements OCR/IA, suivre les actions réalisées et faciliter la recherche et la gouvernance documentaire.
 
-## Aperçu
+## Vue d’ensemble
 
-Ce projet permet de :
+Archivage permet à une organisation de :
 
-- téléverser et organiser des documents numériques ;
-- consulter un tableau de bord d’administration ;
-- extraire du contenu via OCR et IA ;
-- rechercher et filtrer des documents rapidement ;
-- suivre les accès et modifications via un journal d’audit ;
-- gérer la conservation, le partage et les workflows documentaires.
+- téléverser et classer des documents ;
+- consulter un tableau de bord de supervision ;
+- rechercher rapidement dans la base documentaire ;
+- traiter les fichiers via OCR et analyse IA ;
+- suivre les historiques d’accès et d’actions ;
+- gérer les permissions, le partage et les flux de validation.
 
 ## Stack technique
 
@@ -27,14 +27,14 @@ Ce projet permet de :
 - PHP 8.2+
 - Laravel 11
 - Sanctum
-- MySQL / SQLite / base configurée selon l’environnement
-- services d’OCR et IA intégrés
+- MySQL / SQLite / base configurable
+- services OCR et IA intégrés
 
-## Structure du projet
+## Aperçu du projet
 
 ```text
 archivage/
-├── backend/                # API Laravel
+├── backend/                 # API Laravel
 │   ├── app/
 │   ├── config/
 │   ├── database/
@@ -45,7 +45,7 @@ archivage/
 │   ├── composer.json
 │   ├── artisan
 │   └── .env.example
-├── src/                    # Frontend React / Vite
+├── src/                     # Frontend React + Vite
 │   ├── components/
 │   ├── routes/
 │   ├── lib/
@@ -54,59 +54,45 @@ archivage/
 ├── vite.config.ts
 ├── tsconfig.json
 ├── .gitignore
-├── .prettierrc
-├── components.json
-├── bundig.toml
 ├── AGENTS.md
-└── README.md
+├── README.md
+└── ...
 ```
 
-## Prérequis
+## Démarrage rapide pour les collaborateurs
 
-Avant de lancer le projet, vérifie que tu as installé :
-
-- Node.js 18+
-- npm
-- PHP 8.2+
-- Composer
-- une base de données compatible avec Laravel (MySQL, SQLite, etc.)
-
-## Installation
-
-### 1) Cloner le projet
+### 1) Récupérer le projet
 
 ```bash
 git clone https://github.com/nkgr01/archivage.git
 cd archivage
 ```
 
-### 2) Installer les dépendances frontend
+### 2) Installer les dépendances du frontend
 
 ```bash
 npm install
 ```
 
-### 3) Installer les dépendances backend
+### 3) Installer les dépendances du backend
 
 ```bash
 cd backend
 composer install
 ```
 
-### 4) Configuration de l’environnement
-
-Copie le fichier d’environnement Laravel et configure les variables :
+### 4) Configurer l’environnement Laravel
 
 ```bash
 cp .env.example .env
+php artisan key:generate
 ```
 
-Puis mets à jour au minimum :
+Puis modifier le fichier `backend/.env` selon ton environnement local :
 
 ```env
 APP_NAME=Archivage
 APP_ENV=local
-APP_KEY=
 APP_DEBUG=true
 APP_URL=http://localhost:8000
 
@@ -118,49 +104,47 @@ DB_USERNAME=root
 DB_PASSWORD=
 ```
 
-Génère ensuite la clé d’application :
-
-```bash
-php artisan key:generate
-```
-
-### 5) Migration de la base
+### 5) Initialiser la base
 
 ```bash
 php artisan migrate
-```
-
-Si besoin, tu peux aussi lancer les seeders :
-
-```bash
 php artisan db:seed
 ```
 
-## Lancer le projet
+### 6) Lancer les services
 
-### Backend Laravel
-
-Depuis le dossier backend :
+Terminal 1 – backend :
 
 ```bash
+cd backend
 php artisan serve --host 0.0.0.0 --port 8000
 ```
 
-### Frontend Vite
-
-Depuis la racine du projet :
+Terminal 2 – frontend :
 
 ```bash
+cd ..
 npm run dev
 ```
 
-Le frontend sera généralement disponible sur :
+Ouvrir ensuite :
 
-- http://localhost:5173
+- Frontend : http://localhost:5173
+- API : http://localhost:8000
 
-La API Laravel sera disponible sur :
+## Workflow de contribution
 
-- http://localhost:8000
+```bash
+git checkout -b feature/ma-fonctionnalite
+# développer
+npm run lint
+# ou côté backend
+cd backend
+php artisan test
+git add .
+git commit -m "feat: ajout de la fonctionnalité"
+git push origin feature/ma-fonctionnalite
+```
 
 ## Scripts utiles
 
@@ -176,6 +160,7 @@ npm run lint
 ### Backend
 
 ```bash
+cd backend
 php artisan serve
 php artisan migrate
 php artisan test
@@ -184,34 +169,52 @@ php artisan queue:work
 
 ## Fonctionnalités principales
 
-- gestion des documents et fichiers ;
-- tableaux de bord de supervision ;
-- recherche documentaire avancée ;
+- gestion et suivi des documents ;
+- recherche avancée ;
 - OCR et traitement IA ;
+- historique d’audit complet ;
 - gestion des rôles et autorisations ;
-- logs d’audit et suivi des actions ;
-- conservation et gestion des versions ;
-- workflows de signature, partage et reporting.
+- workflow de validation, partage et conservation ;
+- tableau de bord de supervision.
 
-## Développement
+## Démonstration
 
-Pour contribuer au projet :
+Voici la structure d’une démonstration de produit que tu peux compléter avec les captures de ton interface :
 
-1. créer une branche ;
-2. développer la fonctionnalité ;
-3. vérifier le code et les tests ;
-4. ouvrir une pull request.
+### 1) Tableau de bord
+- vue d’ensemble des performances,
+- statistiques de documents,
+- indicateurs de traitement et d’activité.
 
-Exemple :
+### 2) Gestion documentaire
+- liste des documents,
+- filtres et recherche,
+- actions de consultation, validation et partage.
 
-```bash
-git checkout -b feature/ma-fonctionnalite
-```
+### 3) OCR et IA
+- extraction de texte depuis des fichiers,
+- indexation du contenu,
+- synthèse et analyse documentaire.
+
+### 4) Audit et traçabilité
+- historique des actions,
+- identités des agents ou utilisateurs,
+- journal des changements et validations.
+
+> Ajoute ici tes captures d’écran réelles pour rendre le README plus premium et plus représentatif du projet.
+
+## Roadmap possible
+
+- amélioration de la recherche et filtres avancés ;
+- ajout de règles de retention et archivage ;
+- intégration d’outils IA plus poussés ;
+- gestion multi-utilisateur et rôles avancés ;
+- reporting et export des données.
 
 ## Licence
 
-Ce projet est fourni sans garantie explicite. La licence précise peut être ajoutée selon les besoins du projet.
+Le projet est actuellement livré sans licence explicite. Si nécessaire, tu peux ajouter une licence plus tard selon les contraintes du projet et de l’équipe.
 
 ## Contact
 
-Pour toute question sur le projet, contacte le responsable du dépôt ou utilise les issues GitHub du repository.
+Pour toute question ou contribution, utiliser les issues GitHub du dépôt ou contacter la personne responsable du projet.
