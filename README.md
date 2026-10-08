@@ -1,5 +1,11 @@
 # Archivage
 
+[![GitHub Repository](https://img.shields.io/badge/GitHub-archivage-181717?logo=github)](https://github.com/nkgr01/archivage)
+[![React](https://img.shields.io/badge/React-19-61DAFB?logo=react&logoColor=white)](https://react.dev/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.x-3178C6?logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
+[![Laravel](https://img.shields.io/badge/Laravel-11-FF2D20?logo=laravel&logoColor=white)](https://laravel.com/)
+[![PHP](https://img.shields.io/badge/PHP-8.2%2B-777BB4?logo=php&logoColor=white)](https://www.php.net/)
+
 Plateforme de gestion documentaire et d’archivage numérique pensée pour centraliser les documents, automatiser les traitements OCR/IA, suivre les actions réalisées et faciliter la recherche et la gouvernance documentaire.
 
 ## Vue d’ensemble
@@ -82,6 +88,8 @@ composer install
 ```
 
 ### 4) Configurer l’environnement Laravel
+
+Le fichier d’exemple de configuration est disponible dans le dossier backend : `backend/.env.example`.
 
 ```bash
 cp .env.example .env
