@@ -209,8 +209,6 @@ Voici la structure d’une démonstration de produit que tu peux compléter avec
 - identités des agents ou utilisateurs,
 - journal des changements et validations.
 
-> Ajoute ici tes captures d’écran réelles pour rendre le README plus premium et plus représentatif du projet.
-
 ## Roadmap possible
 
 - amélioration de la recherche et filtres avancés ;
